@@ -25,8 +25,6 @@ namespace NebusokuEngine.Editor
         {
             HumanMuscle script = target as HumanMuscle;
 
-            //HumanMuscleTree.Initialize();
-
             if (EditorApplication.isPlaying && script.enabled)
             {
                 transGUI.Reset(script.Position, script.Angle);
@@ -173,25 +171,6 @@ namespace NebusokuEngine.Editor
             BoneNameButton(ToesRightBone.GetInstance(), 150);
             GUILayout.EndHorizontal();
 
-            /*
-            foreach (HumanMuscleTree.BoneKey b in Enum.GetValues(typeof(HumanMuscleTree.BoneKey)))
-            {
-                if (b == boneName)
-                {
-                    var bone = HumanMuscleTree.bones[(int)boneName];
-                    for (int i = 0; i < bone.keys.Length; i++)
-                    {
-                        var key = bone.keys[i];
-                        script[key] = EditorGUILayout.Slider(key.ToString(), script[key], -1, 1);
-                    }
-
-                    if (GUILayout.Button("Mirror"))
-                    {
-                        HumanMuscleTree.bones[(int)boneName].Mirror(script);
-                    }
-                }
-            }*/
-
         }
 
         private void BoneNameButton(IHumanBone name, int width)
@@ -209,31 +188,18 @@ namespace NebusokuEngine.Editor
             GUILayout.BeginHorizontal();
             BoneNameButton(ThumbLeftBone.GetInstance());
             BoneNameButton(IndexLeftBone.GetInstance());
-            BoneNameButton(IndexLeftBone.GetInstance());
+            BoneNameButton(MiddleLeftBone.GetInstance());
             BoneNameButton(RingLeftBone.GetInstance());
             BoneNameButton(LittleLeftBone.GetInstance());
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
             BoneNameButton(ThumbRightBone.GetInstance());
             BoneNameButton(IndexRightBone.GetInstance());
-            BoneNameButton(IndexRightBone.GetInstance());
+            BoneNameButton(MiddleRightBone.GetInstance());
             BoneNameButton(RingRightBone.GetInstance());
             BoneNameButton(LittleRightBone.GetInstance());
             GUILayout.EndHorizontal();
 
-            /*
-            var bone = HumanMuscleTree.bones[(int)boneName];
-
-            foreach (var key in bone.keys)
-            {
-                script[key] = EditorGUILayout.Slider(key.ToString(), script[key], -1, 1);
-            }
-
-            // 反転コピー
-            if (GUILayout.Button("Mirror"))
-            {
-                HumanMuscleTree.bones[(int)boneName].Mirror(script);
-            }*/
         }
 
 

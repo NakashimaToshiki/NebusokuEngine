@@ -293,7 +293,7 @@
     public class HandDownUpLeftState : SingletonHumanMuscleStateBase<HandDownUpLeftState>
     {
         override public int Id => 44;
-        override public IHumanMuscleState MateState => NullState.GetInstance();
+        override public IHumanMuscleState MateState => HandDownUpRightState.GetInstance();
     }
 
     public class HandInOutLeftState : SingletonHumanMuscleStateBase<HandInOutLeftState>
